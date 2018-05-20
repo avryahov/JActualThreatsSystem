@@ -39,7 +39,7 @@ public class Frame extends JFrame {
     }
 
     public Frame() {
-        super("Актуальность угроз безопасности ИСПДн");
+        super("Актуальность угроз безопасности информационной системы безопасности данных");
         Dimension screeSize = getToolkit().getScreenSize();
         setSize(screeSize.width, screeSize.height);
         setResizable(false);
