@@ -2,25 +2,20 @@ package com.ulia.enums;
 
 public enum AmountData {
 
-    FIRST("более чем 100 000 субъектов", 0),
+    FIRST("более чем 100 000 субъектов"),
 
-    SECOND("от 1000 до 100 000 субъектов", 1),
+    //SECOND("от 1000 до 100 000 субъектов", 1),
 
-    THIRD("менее чем 1000 субъектов", 2);
+    THIRD("менее чем 1000 субъектов");
 
     private String name;
-    private int number;
 
-    AmountData(String name, int number) {
+    AmountData(String name) {
         this.name = name;
-        this.number = number;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getNumber() {
-        return number;
-    }
 }
