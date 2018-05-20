@@ -25,4 +25,15 @@ public final class Fields {
      * Левая координата по оси Х
      */
     public static final int X_LEFT = 12;
+
+    /**
+     * Ширина кнопок по умолчанию
+     */
+    public static final int DEFAULT_WIDTH_BUTTON = 230;
+
+    /**
+     * Высота кнопок по умолчанию
+     */
+    public static final int DEFAULT_HEIGHT_BUTTON = 50;
+
 }
