@@ -6,9 +6,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/classes/InformationSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/classes/InformationSystem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/functions/Components.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/functions/Components.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/windows/Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/windows/Frame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ulia/enums/AmountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ulia/enums/AmountData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ulia/windows/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ulia/windows/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ulia/windows/Step0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ulia/windows/Step0.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Frame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Frame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Frame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+            <state relative-caret-position="292">
+              <caret line="101" column="49" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Step0.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Step0.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Step0.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
@@ -62,6 +59,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Alexander Ryahov &lt;39456027+avryahov@users.noreply.github.com&gt;" />
         <option value="alexander &lt;lex199108@mail.ru&gt;" />
       </list>
     </option>
@@ -76,8 +74,8 @@
         <option value="$PROJECT_DIR$/src/com/ulia/classes/InformationSystem.java" />
         <option value="$PROJECT_DIR$/src/com/ulia/functions/Components.java" />
         <option value="$PROJECT_DIR$/src/com/ulia/enums/AmountData.java" />
-        <option value="$PROJECT_DIR$/src/com/ulia/windows/Frame.java" />
         <option value="$PROJECT_DIR$/src/com/ulia/windows/Step0.java" />
+        <option value="$PROJECT_DIR$/src/com/ulia/windows/Frame.java" />
       </list>
     </option>
   </component>
@@ -215,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526826310356</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add JTable, add labels by information system, add functional where jtable must be update">
+      <created>1526833625613</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1526833625613</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -256,7 +261,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new constants by default-width-button and default-height-button" />
     <MESSAGE value="update Components, refactor and start to overwrite Step0, add listeners to menu into Frame" />
-    <option name="LAST_COMMIT_MESSAGE" value="update Components, refactor and start to overwrite Step0, add listeners to menu into Frame" />
+    <MESSAGE value="add JTable, add labels by information system, add functional where jtable must be update" />
+    <option name="LAST_COMMIT_MESSAGE" value="add JTable, add labels by information system, add functional where jtable must be update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -442,20 +448,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Frame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Step0.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="146" column="13" lean-forward="true" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Frame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="101" column="49" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
