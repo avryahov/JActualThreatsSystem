@@ -8,12 +8,10 @@ import com.ulia.enums.AmountData;
 import com.ulia.functions.Components;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Dictionary;
-import java.util.Hashtable;
+import java.util.*;
+import java.util.List;
 
 // статический импорт библиотек (чтобы не использовать при вызове метода название класса)
 
@@ -26,9 +24,10 @@ public class Step0 {
     private JTextField textField; // текстовое поле
     private ArrayList<PersonalData> dataArrayList; // список выбранных персональных данных
     private ArrayList<PersonalData> selectedData; // список выбранных персональных данных
-    private JRadioButton radioButtonOperatorT; // переключатель оператора с доступом
-    private JRadioButton radioButtonOperatorF; // переключатель оператора без доступа
-    private Integer value; // значение слайдера
+    private JCheckBox checkBoxOperatorT; // флажок оператора как сотрудника
+    private JCheckBox checkBoxOperatorF; // флажок оператора как не сотрудника
+    private JCheckBox checkBoxAmountT; // флажок объёма без доступа
+    private JCheckBox checkBoxAmountF; // флажок объёма без доступа
     private int width;
 
     // Конструктор класса
@@ -85,64 +84,66 @@ public class Step0 {
         }
         y = jLabelSelect.getY() + 25 + 8 * 20;
 
-        JLabel jLabelOperator = new JLabel("Выберете имеет ли оператор доступ к информационной системе или нет:"); // создание метки
-        paintComponent(jLabelOperator, contentPane, fontBold, X_LEFT, y + 20, width, 15);
+        JLabel jLabelOperator = new JLabel("Выберете является ли оператор сотрудником в информационной системе или нет:"); // создание метки
+        paintComponent(jLabelOperator, contentPane, fontBold, X_LEFT, y + 20, 600, 15);
 
-        ButtonGroup buttonGroup = new ButtonGroup(); // задаём группу кнопок
-        radioButtonOperatorT = new JRadioButton("оператор имеет доступ к испдн");
-        Components.paintButton(radioButtonOperatorT, contentPane, buttonGroup, fontNormal, X_LEFT, jLabelOperator.getY() + 20, 255, 20);
+        int operatorY = jLabelOperator.getY();
 
-        radioButtonOperatorF = new JRadioButton("оператор не имеет доступ к испдн");
-        Components.paintButton(radioButtonOperatorF, contentPane, buttonGroup, fontNormal, X_LEFT + 255, jLabelOperator.getY() + 20, 280, 20);
+        ButtonGroup buttonGroup1 = new ButtonGroup(); // задаём группу кнопок
+        checkBoxOperatorT = new JCheckBox("является сотрудником");
+        Components.paintButton(checkBoxOperatorT, contentPane, buttonGroup1, fontNormal, X_LEFT, operatorY + 20, 255, 20);
+
+        checkBoxOperatorF = new JCheckBox("не является сотрудником");
+        Components.paintButton(checkBoxOperatorF, contentPane, buttonGroup1, fontNormal, X_LEFT + 260, operatorY + 20, 280, 20);
 
         JLabel jLabelAmount = new JLabel("Выберете объем персональных данных, обрабатываемых в испдн:"); // создание метки
-        paintComponent(jLabelAmount, contentPane, fontBold, X_LEFT, 405, width, 15);
+        paintComponent(jLabelAmount, contentPane, fontBold, jLabelOperator.getX() + 610, operatorY, width, 15);
 
-        // создаём слайдер (ползунок), при этом указываем, что у нас будет три значения по шкале (0, 1, 2), где 0 - минимальное, а 2 - максимальное значение
-        JSlider slider = new JSlider(0, 2, 0);
+        ButtonGroup buttonGroup2 = new ButtonGroup(); // задаём группу кнопок
+        checkBoxAmountT = new JCheckBox("более чем 100 000");
+        Components.paintButton(checkBoxAmountT, contentPane, buttonGroup2, fontNormal, jLabelOperator.getX() + 610, operatorY + 20, 255, 20);
 
-        // создаём список-словарь, где каждая пара представленна в виде ключ-значение
-        // при этом у нас пара имеет конкретные типы для ключа и значения
-        // добавляем трижды в список пары с указанием "номера веса", текстового обозначения (дополнительно форматируя его)
-        Dictionary<Integer, JLabel> labels = new Hashtable<>();
-        labels.put(new Integer(AmountData.FIRST.getNumber()), new JLabel("<html><font color=blue size=3>более чем 100 000</font></html>"));
-        labels.put(new Integer(AmountData.SECOND.getNumber()), new JLabel("<html><font color=gray size=3>от 1000 до 100 000</font></html>"));
-        labels.put(new Integer(AmountData.THIRD.getNumber()), new JLabel("<html><font color=red size=3>менее чем 1000</font></html>"));
+        checkBoxAmountF = new JCheckBox("менее чем 1000");
+        Components.paintButton(checkBoxAmountF, contentPane, buttonGroup2, fontNormal, checkBoxAmountT.getX() + 260, operatorY + 20, 280, 20);
 
-        slider.setLabelTable(labels); // добавляем в слайдер набор из словаря
-        slider.setPaintLabels(true); // говорим, что их нужно отрисовать (отобразить)
-        slider.setMajorTickSpacing(50); // устанавливаем максимальный интервал тиков (расстояния между значениями по шкале)
-        slider.setBounds(X_LEFT, 430, 576, 30); // задаём месторасположение и размеры слайдера
-
-        value = new Integer(0); // задаём, что начальное значение равно нулю с помощшью класса-обёртки (т.е. по умолчанию у нас вес более чем 100 000 субъектов)
-        slider.addChangeListener(e -> value = ((JSlider) e.getSource()).getValue()); // обрабатываем событие перемещения ползунка, сохраняя выбранное значение в переменную
-        contentPane.add(slider); // добавляем слайдер на панель
-
-        JButton buttonSaveAndStart = new JButton("Сохранить данные и перейти к первому этапу"); // инициализация кнопки
-        paintComponent(buttonSaveAndStart, contentPane, fontBold, 198, 490, 390, 25);
+        JButton buttonSaveAndStart = new JButton("Сохранить основные данные информационной системы персональных данных"); // инициализация кнопки
+        paintComponent(buttonSaveAndStart, contentPane, fontBold, X_LEFT, checkBoxAmountT.getY() + 50, width - 12, 25);
 
         // добавления слушателя для кнопки (если она совершит действие)
         buttonSaveAndStart.addActionListener(actionEvent -> { // обработчик события
             String name = textField.getText().trim(); // берём текст и удаляем лишние пробелы по обеим стороная строки
             // если название информационной системы пусто - выводим диалоговое окно с предупреждением
             if (name.isEmpty())
-                JOptionPane.showMessageDialog(null, "Вы не указали название информационной системы", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Вы не указали название информационной системы", "Предупреждение", JOptionPane.WARNING_MESSAGE);
             else if (selectedData.size() == 0)
-                JOptionPane.showMessageDialog(null, "Вы не выбрали персональные данные информационной системы", "Ошибка", JOptionPane.ERROR_MESSAGE);
-            else if (!radioButtonOperatorT.isSelected() && !radioButtonOperatorF.isSelected())
-                JOptionPane.showMessageDialog(null, "Вы не указали, имеет ли доступ оператор к информационной системы или нет", "Ошибка", JOptionPane.ERROR_MESSAGE);
-            else if (value == null)
-                JOptionPane.showMessageDialog(null, "Вы не выбрали объем персональных данных, обрабатываемых в информационной системе", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Вы не выбрали персональные данные информационной системы", "Предупреждение", JOptionPane.WARNING_MESSAGE);
+            else if (!checkBoxOperatorT.isSelected() && !checkBoxOperatorF.isSelected())
+                JOptionPane.showMessageDialog(null, "Вы не указали, является ли оператор сотрудником или нет", "Предупреждение", JOptionPane.WARNING_MESSAGE);
+            else if (!checkBoxAmountT.isSelected() && !checkBoxAmountF.isSelected())
+                JOptionPane.showMessageDialog(null, "Вы не указали объём данных информационной системы", "Предупреждение", JOptionPane.WARNING_MESSAGE);
             else {
-                AmountData amountData = AmountData.values()[value.intValue()];
+                AmountData amountData = AmountData.values()[checkBoxAmountT.isSelected() ? 0 : 1];
                 // иначе создаём экземпляр класса информационной системы и кладём в поле класса значение названия, список выбранных персональных данных, причастие оператора к доступу, объём данных
-                InformationSystem informationSystem = new InformationSystem(name, selectedData, radioButtonOperatorT.isSelected(), amountData);
+                InformationSystem informationSystem = new InformationSystem(name, selectedData, checkBoxOperatorT.isSelected(), amountData);
                 Frame.informationSystem.setName(name);
                 Frame.informationSystem.setDataArrayList(selectedData);
-                Frame.informationSystem.setAccessOperator(radioButtonOperatorT.isSelected());
+                Frame.informationSystem.setAccessOperator(checkBoxOperatorT.isSelected());
                 Frame.informationSystem.setAmountData(amountData);
                 Frame.textSystemName.setText(" " + (informationSystem == null ? "" : informationSystem.getName()));
-                //new Step1(iSystem); // переходим ко второму окну (первому этапу) и передаём экземпляр класса информационный системы
+                List<PersonalData> list = selectedData;
+                selectedData.sort(Comparator.comparing(f -> f.getSortOrder()));
+                if (list == null) return;
+                if (list.size() > 0) {
+                    Object[][] dataObjects = new String[list.size()][];
+                    int i = 0;
+                    for (PersonalData data : list) {
+                        dataObjects[i] = new String[]{data.getName(), data.getCategory().getName()};
+                        i++;
+                    }
+                    Frame.tablePersonalData.setModel(new DefaultTableModel(dataObjects, new String[]{"Наименование ПДн", "Категория ПДн"}));
+                }
+                Frame.labelAccessResult.setText(checkBoxOperatorT.isSelected() ? "является" : "не является");
+                Frame.labelAmountResult.setText(checkBoxAmountT.isSelected() ? checkBoxAmountF.getText() : checkBoxAmountF.getText());
             }
         });
     }

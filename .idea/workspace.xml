@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4fbd8611-3d4d-4943-8a81-c13d6e1488f0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/classes/InformationSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/classes/InformationSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/functions/Components.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/functions/Components.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/windows/Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/windows/Frame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JActualThreatsSystem/com/ulia/windows/Start.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ulia/classes/InformationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ulia/classes/InformationSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ulia/functions/Components.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ulia/functions/Components.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ulia/enums/AmountData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ulia/enums/AmountData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ulia/windows/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ulia/windows/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ulia/windows/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ulia/windows/Step0.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ulia/windows/Step0.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ulia/windows/Step0.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +23,8 @@
       <file leaf-file-name="Frame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Frame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="72" column="24" lean-forward="true" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+            <state relative-caret-position="142">
+              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,8 +35,17 @@
       <file leaf-file-name="Step0.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Step0.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="275">
+              <caret line="146" column="13" lean-forward="true" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AmountData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ulia/enums/AmountData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -65,8 +74,9 @@
         <option value="$PROJECT_DIR$/src/com/ulia/Main.java" />
         <option value="$PROJECT_DIR$/src/com/ulia/functions/Fields.java" />
         <option value="$PROJECT_DIR$/src/com/ulia/classes/InformationSystem.java" />
-        <option value="$PROJECT_DIR$/src/com/ulia/windows/Frame.java" />
         <option value="$PROJECT_DIR$/src/com/ulia/functions/Components.java" />
+        <option value="$PROJECT_DIR$/src/com/ulia/enums/AmountData.java" />
+        <option value="$PROJECT_DIR$/src/com/ulia/windows/Frame.java" />
         <option value="$PROJECT_DIR$/src/com/ulia/windows/Step0.java" />
       </list>
     </option>
@@ -198,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526819685343</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update Components, refactor and start to overwrite Step0, add listeners to menu into Frame">
+      <created>1526826310356</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1526826310356</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -207,18 +224,18 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32913387" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32913387" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32755905" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32755905" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24963397" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -238,11 +255,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new constants by default-width-button and default-height-button" />
-    <option name="LAST_COMMIT_MESSAGE" value="new constants by default-width-button and default-height-button" />
+    <MESSAGE value="update Components, refactor and start to overwrite Step0, add listeners to menu into Frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="update Components, refactor and start to overwrite Step0, add listeners to menu into Frame" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="18" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -324,33 +342,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Step4_Result.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="64" column="58" lean-forward="true" selection-start-line="59" selection-start-column="11" selection-end-line="64" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Step1.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-45">
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ulia/classes/InformationSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
-          <folding>
-            <element signature="e#974#975#0" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1380#1381#0" expanded="true" />
-            <element signature="e#1430#1431#0" expanded="true" />
-            <element signature="e#1569#1570#0" expanded="true" />
-            <element signature="e#1621#1622#0" expanded="true" />
-            <element signature="e#1795#1796#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -400,10 +395,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/javax/swing/JTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="682" column="11" selection-start-line="682" selection-start-column="11" selection-end-line="682" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ulia/classes/InformationSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+          <folding>
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#1006#1007#0" expanded="true" />
+            <element signature="e#1269#1270#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1380#1381#0" expanded="true" />
+            <element signature="e#1430#1431#0" expanded="true" />
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1621#1622#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1795#1796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/awt/Container.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="1285" column="16" selection-start-line="1285" selection-start-column="16" selection-end-line="1285" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ulia/enums/AmountData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Step4_Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="146" lean-forward="true" selection-start-line="141" selection-start-column="7" selection-end-line="146" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Frame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="72" column="24" lean-forward="true" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+        <state relative-caret-position="142">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -412,8 +454,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ulia/windows/Step0.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="275">
+          <caret line="146" column="13" lean-forward="true" selection-start-line="146" selection-start-column="13" selection-end-line="146" selection-end-column="13" />
         </state>
       </provider>
     </entry>
