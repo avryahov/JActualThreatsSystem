@@ -50,7 +50,8 @@ public final class Components {
         component.setFont(font); // задаём для компонента выбранный шрифт
         component.setEnabled(false); // делаем недоступным компонент для редактирования
         component.setBounds(x, y, width, height); // задаём положение и размеры компонента
-        component.setBackground(Color.BLACK); // задаём чёрный фон компонента
+        component.setBackground(Color.GRAY); // задаём чёрный фон компонента
+        component.setForeground(Color.WHITE);
         contentPane.add(component); // добавляем компонент в панель
     }
 

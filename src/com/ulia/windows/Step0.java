@@ -21,9 +21,8 @@ import static com.ulia.functions.Components.paintComponent;
 import static com.ulia.functions.Fields.*;
 
 // Класс "Старт", наследуемый от класса JFrame
-public class Start extends JFrame {
+public class Step0 {
 
-    private JPanel contentPane; // панель содержимого (контента)
     private JTextField textField; // текстовое поле
     private ArrayList<PersonalData> dataArrayList; // список выбранных персональных данных
     private ArrayList<PersonalData> selectedData; // список выбранных персональных данных
@@ -33,18 +32,9 @@ public class Start extends JFrame {
     private int width;
 
     // Конструктор класса
-    public Start() {
-        setTitle("Система определения актуальности угроз ИСПДн"); // метод для указания заголовка окна
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // метод для указания операции при закрытии окна, т.е. закрытии приложения в целом
-        setBounds(200, 100, 600, 570); // указания координат местоположения и размеров окна
-        setResizable(false);
+    public Step0(JPanel contentPane) {
 
-        this.width = 575;
-
-        contentPane = new JPanel(); // инициализация панели
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5)); // задание типа рамки панели (безрамочной с указанием )
-        setContentPane(contentPane); // метод позволяет заменить панель содержимого окна.
-        contentPane.setLayout(null); // задание макета (шаблона) панели (абсолютный или пустой - размещение компонентов по своему усмотрению)
+        this.width = contentPane.getWidth() - 30;
 
         JLabel jLabelName = new JLabel("Введите название информационной системы:"); // создание метки
         paintComponent(jLabelName, contentPane, fontBold, X_LEFT, 12, width, 15); // отрисовка компонента на панели текушего фрейма
@@ -58,15 +48,21 @@ public class Start extends JFrame {
         dataArrayList = PersonalData.init(); // получение списка всего перечня персональных данных
         selectedData = new ArrayList<>();
 
-        JPanel panelData = new JPanel();
-        panelData.setLayout(null);
-        panelData.setPreferredSize(new Dimension(350, dataArrayList.size() * 20));
-
-        int y = 2;
+        int y = jLabelSelect.getY() + 25;
+        int x = X_LEFT;
         dataArrayList.sort(Comparator.comparing(PersonalData::getSortOrder)); // сортировка списка персональных данных по номеру
+        PersonalData dataMax = dataArrayList.stream().max(Comparator.comparingInt(f -> f.getName().length())).get();
+        int widthCheckBox = dataMax.getName().length() * 8;
         for (PersonalData data : dataArrayList) {
             JCheckBox checkBox = new JCheckBox(data.getName()); // создаём новый check для проставления "галочки"
-            paintComponent(checkBox, panelData, fontNormal, 2, y, width, 15);
+            int index = dataArrayList.indexOf(data);
+            if (index > 1 && index % 8 == 0) {
+                y = jLabelSelect.getY() + 25;
+                x += widthCheckBox + 10;
+                widthCheckBox += 10;
+            }
+            paintComponent(checkBox, contentPane, fontNormal, x, y, widthCheckBox, 15);
+
             checkBox.addActionListener(e -> {
                 JCheckBox item = (JCheckBox) e.getSource();
 
@@ -87,22 +83,17 @@ public class Start extends JFrame {
             });
             y += 20;
         }
-
-        // добавляем на панель скроллинг, внутрь которого добавляем внутреннюю панель, куда добавили все "чеки"
-        // при этом задали два параметы о необходимости вертикальной прокрутки и запрете горизонтальной
-        JScrollPane scrollPane = new JScrollPane(panelData, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setBounds(X_LEFT, 90, width, 250);
-        contentPane.add(scrollPane);
+        y = jLabelSelect.getY() + 25 + 8 * 20;
 
         JLabel jLabelOperator = new JLabel("Выберете имеет ли оператор доступ к информационной системе или нет:"); // создание метки
-        paintComponent(jLabelOperator, contentPane, fontBold, X_LEFT, 350, width, 15);
+        paintComponent(jLabelOperator, contentPane, fontBold, X_LEFT, y + 20, width, 15);
 
         ButtonGroup buttonGroup = new ButtonGroup(); // задаём группу кнопок
         radioButtonOperatorT = new JRadioButton("оператор имеет доступ к испдн");
-        Components.paintButton(radioButtonOperatorT, contentPane, buttonGroup, fontNormal, X_LEFT, 370, 255, 20);
+        Components.paintButton(radioButtonOperatorT, contentPane, buttonGroup, fontNormal, X_LEFT, jLabelOperator.getY() + 20, 255, 20);
 
         radioButtonOperatorF = new JRadioButton("оператор не имеет доступ к испдн");
-        Components.paintButton(radioButtonOperatorF, contentPane, buttonGroup, fontNormal, X_LEFT + 255, 370, 280, 20);
+        Components.paintButton(radioButtonOperatorF, contentPane, buttonGroup, fontNormal, X_LEFT + 255, jLabelOperator.getY() + 20, 280, 20);
 
         JLabel jLabelAmount = new JLabel("Выберете объем персональных данных, обрабатываемых в испдн:"); // создание метки
         paintComponent(jLabelAmount, contentPane, fontBold, X_LEFT, 405, width, 15);
@@ -145,12 +136,14 @@ public class Start extends JFrame {
             else {
                 AmountData amountData = AmountData.values()[value.intValue()];
                 // иначе создаём экземпляр класса информационной системы и кладём в поле класса значение названия, список выбранных персональных данных, причастие оператора к доступу, объём данных
-                InformationSystem iSystem = new InformationSystem(name, selectedData, radioButtonOperatorT.isSelected(), amountData);
-                new Step1(iSystem); // переходим ко второму окну (первому этапу) и передаём экземпляр класса информационный системы
-                setVisible(false); // делаем стартовое текущее окно невидимым
+                InformationSystem informationSystem = new InformationSystem(name, selectedData, radioButtonOperatorT.isSelected(), amountData);
+                Frame.informationSystem.setName(name);
+                Frame.informationSystem.setDataArrayList(selectedData);
+                Frame.informationSystem.setAccessOperator(radioButtonOperatorT.isSelected());
+                Frame.informationSystem.setAmountData(amountData);
+                Frame.textSystemName.setText(" " + (informationSystem == null ? "" : informationSystem.getName()));
+                //new Step1(iSystem); // переходим ко второму окну (первому этапу) и передаём экземпляр класса информационный системы
             }
         });
-        setVisible(true); // делаем стартовое текущее окно видимым
     }
-
 }
